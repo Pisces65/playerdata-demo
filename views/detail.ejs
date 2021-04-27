@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+
+    <%- include('./partials/nav.ejs') %> 
+
+    <div class="details content">
+        <h2><%= player.name %> </h2>
+        <form action="/players/<%= player._id %>" method="post">
+            <div class="content">
+                <label for="transform_x">transform_x:</label>
+                <input type="text" id="transform_x" name="transform_x" value="<%= player.transform_x %>" required>
+                <br>
+                <label for="transform_y">transform_y:</label>
+                <input type="text" id="transform_y" name="transform_y" value="<%= player.transform_y %>" required>
+                <br>
+                <label for="transform_z">transform_z:</label>
+                <input type="text" id="transform_z" name="transform_z" value="<%= player.transform_z %>" required>
+                <br>
+                <label for="data">data:</label>
+                <input type="text" id="data" name="data" value="<%= player.data %>" required>
+            </div>
+            <button class="change">change</button>
+        </form>
+
+        <a class="delete" data-doc="<%= player._id %>">delete</a>
+
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+        const trash = document.querySelector('a.delete');
+
+        trash.addEventListener('click', (e) => {
+            const endpoint = `/players/${trash.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then(respond => respond.json())
+            .then(data => window.location.href = data.redirect )
+            .catch((err) => {
+                console.log(err);
+            });
+        })
+    </script>
+</body>
+</html>

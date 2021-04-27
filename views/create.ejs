@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    
+    <%- include('./partials/nav.ejs') %> 
+
+    <div class="create-blog content">
+        <form action='/players' method="POST">
+          <label for="name">Player name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="transform_x">transform_x:</label>
+          <input type="text" id="transform_x" name="transform_x" required>
+          <label for="transform_y">transform_y:</label>
+          <input type="text" id="transform_y" name="transform_y" required>
+          <label for="transform_z">transform_z:</label>
+          <input type="text" id="transform_z" name="transform_z" required>
+          <label for="data">data:</label>
+          <input type="text" id="data" name="data" required>
+          <button>Submit</button>
+        </form>
+      </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
