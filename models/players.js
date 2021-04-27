@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//先创建数据库Schema
 const playerSchema = new Schema({
     name: {
         type: String,
@@ -24,6 +23,5 @@ const playerSchema = new Schema({
     },
 }, { timestamps: true });
 
-//Schema -> model,第一额参数是与后端数据库交流的名称，第二个是Schema
 const Player = mongoose.model('Player', playerSchema);
 module.exports = Player;
