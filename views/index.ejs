@@ -10,7 +10,7 @@
 
         <% if(players.length > 0){ %> 
             <% players.forEach(player => { %>
-                <a class="single" href="/players/<%= player._id %>">
+                <a class="single" href="/players/<%= player.name %>">
                     <h3 class="title"><%= player.name %> </h3>
                     <p class="snippet"><%= player.data %> </p>
                 </a>

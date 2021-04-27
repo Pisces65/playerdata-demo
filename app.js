@@ -5,10 +5,11 @@ const playerRoutes = require('./routes/playerRoutes');
 
 const app = express();
 
+let playernames = [];
 //connect to mongoDB
 //为了确保读取数据库后用户可以访问网址，在读取到数据后app才监听端口开放
 const DBURI = 'mongodb://localhost:27017/playerdata?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000';
-mongoose.connect(DBURI, { useNewUrlParser:true, useUnifiedTopology: true })
+mongoose.connect(DBURI, { useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex: true})
     .then((result) => { app.listen(3000);
         console.log('Server is running at http://127.0.0.1:3000') })
     .catch((err) => { console.log(err) });

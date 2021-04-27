@@ -4,18 +4,19 @@ const Schema = mongoose.Schema;
 const playerSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique : true,
     },
     transform_x: {
-        type: Number,
+        type: String,
         required: true
     },
     transform_y: {
-        type: Number,
+        type: String,
         required: true
     },
     transform_z: {
-        type: Number,
+        type: String,
         required: true
     },
     data: {

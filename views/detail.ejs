@@ -7,7 +7,7 @@
 
     <div class="details content">
         <h2><%= player.name %> </h2>
-        <form action="/players/<%= player._id %>" method="post">
+        <form action="/players/change/<%= player._id %>" method="post">
             <div class="content">
                 <label for="transform_x">transform_x:</label>
                 <input type="text" id="transform_x" name="transform_x" value="<%= player.transform_x %>" required>
@@ -19,7 +19,7 @@
                 <input type="text" id="transform_z" name="transform_z" value="<%= player.transform_z %>" required>
                 <br>
                 <label for="data">data:</label>
-                <input type="text" id="data" name="data" value="<%= player.data %>" required>
+                <input type="text" id="data" name="data" value="<%= player.data %>">
             </div>
             <button class="change">change</button>
         </form>
